@@ -1,0 +1,60 @@
+Ansible
+---------
+1.Ansible is used to do Automate Configuration management(configuring systems), automate Orchestration(brings togther number of applications and decides an order in which (Unlike Chef) they have to be executed) 
+and Deplyment of applications.
+
+2.Unlike Chef or Puppet, Ansible is a Push type of Configuration management tool.
+   It means that the entire control lies In Master or Server and this is where you wirte the configuration file and push that configuration to the nodes or client machines when required..
+
+
+3. In Ansible hosts file we will mention the details aboit the client or node machine.
+
+4.Playbook is the techinal term we use for all the configuration file in Ansible in which we  use the language YAML 
+   a) In Playbook or any code in YAML starts with ... 3 dots 
+
+5. Master and Client machines communicate through SSH, a secured channel to have communication.
+
+1.YAML 
+------------
+1.YAML is a document
+2. The YAML document expects its content to properly formatted. It contains Lists and dictionaries.
+    Each item in the list is list of key or value pairs. commonly called as hash or dictionaries.
+3. YAML starts with ---
+4. List item starts with a hyphen after that a small space and after that name of theitem.
+5. in another way a list can have list items in the format of dictionary. key / value pair.
+
+Writing a playbook
+---------------------
+Writing a playbook through VS
+1.Create a folder in your system
+2.import /open the folder in Visual studio
+3.create file in any name ( right click on the explorer and choose new file)
+4.eg: main.yaml (.yaml / yml extention for play book)
+5. If .yaml extn is not accepting then install YAML plugin, go to search bar search YAML and click install.
+6. a LIST CAN HAVE dictionary or a dictionary can have list .
+7.A task has a name and module
+8.A module has name and state 
+6.main.yaml
+   ---
+   - hosts: dev ( in which Target / server group this playbook neeed to run.)
+      tasks:  ( the action need to be performed)
+      - name: install httpd
+         yum:      ( module what i need to use to perform the above task)
+             name: httpd
+             state: latest
+      - name: This task to start the service
+         service:
+               name: httpd
+               state: started
+
+the above code is simple and completed
+
+-----------------------
+YAML validator
+-----------------
+We can check the YAML code is valid and syntax are correct.  
+
+
+
+
+
